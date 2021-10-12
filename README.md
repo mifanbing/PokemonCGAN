@@ -19,12 +19,12 @@ Standard CGAN: (https://machinelearningmastery.com/how-to-develop-a-conditional-
 Generator: \
 label_embedding = Embedding(self.class_num, 1024)(label) \
 label_embedding = Dense(3* 3* 60)(label_embedding) \
-label_embedding = Reshape((3, 3, 60))(label_embedding) \
+label_embedding = Reshape((3, 3, 60))(label_embedding)
 
 Discriminator: \
 label_embedding = Embedding(self.class_num, 256)(label) \
 label_embedding = Dense(self.img_cols*self.img_rows)(label_embedding) \
-label_embedding = Reshape((self.img_cols,self.img_rows,1))(label_embedding) \
+label_embedding = Reshape((self.img_cols,self.img_rows,1))(label_embedding)
 
 **Training**\
 I decided that in each epoch, I update the Discriminator once and the Generator twice. If once and once, the D beats the G easily and doesn't generate good pokemons. Same issue with once and three times.\
